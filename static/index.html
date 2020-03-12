@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>PWA • test</title>
-  <script src="/vue.js"></script>
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,77 +14,55 @@
   <meta name="msapplication-navbutton-color" content="#1d497d">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="msapplication-starturl" content="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, shrink-to-fit=no, user-scalable=no">
 
-  <link rel="icon" type="image/png" sizes="280x280" href="/XXXXHDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="280x280" href="/XXXXHDPI.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/XXXHDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/XXXHDPI.png">
-  <link rel="icon" type="image/png" sizes="144x144" href="/XXHDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="/XXHDPI.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/XHDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="96x96" href="/XHDPI.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/TVDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="64x64" href="/TVDPI.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/MDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="48x48" href="/MDPI.png">
-  <link rel="icon" type="image/png" sizes="36x36" href="/LDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="36x36" href="/LDPI.png">
-  <link rel="icon" type="image/png" sizes="72x72" href="/HDPI.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="/HDPI.png">
-  <link rel="icon" type="image/png" sizes="820x820" href="/ICON.png">
-  <link rel="apple-touch-icon" type="image/png" sizes="820x820" href="/ICON.png">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <link rel="icon" type="image/png" sizes="280x280" href="XXXXHDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="280x280" href="XXXXHDPI.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="XXXHDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="XXXHDPI.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="XXHDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="XXHDPI.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="XHDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="96x96" href="XHDPI.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="TVDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="64x64" href="TVDPI.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="MDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="48x48" href="MDPI.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="LDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="36x36" href="LDPI.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="HDPI.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="HDPI.png">
+  <link rel="icon" type="image/png" sizes="820x820" href="ICON.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="820x820" href="ICON.png">
 
-    #app {
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-    }
+  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
 
-    #btn {
-      cursor: pointer;
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 30px;
-      background: #1d497d;
-      border: none;
-      border-radius: 3px;
-      font-weight: bolder;
-      color: white;
-    }
+  <!-- Load polyfills to support older browsers -->
+  <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
 
-    #btn:active {
-      color: #dedede;
-      background: #2d2de8;
-      border-radius: 3px;
-    }
-
-    #btn:focus {
-      outline: none;
-      background: #2d2de8;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="vue.js"></script>
 
 </head>
 
 <body>
 
-  <main id="app">
-
-    <button id="btn" @click.prevent="btnDown">{{btnText}}</button>
-
+  <main id="app" class="d-grid main">
+    <div class="top-row">
+      <!-- As a heading -->
+      <b-navbar variant="faded" type="dark">
+        <b-navbar-brand tag="h1" class="mb-0"><b>PWA</b> • test app</b-navbar-brand>
+      </b-navbar>
+    </div>
+    <div class="main-row"></div>
+    <div class="bottom-row"></div>
   </main>
+  <!-- Load Vue followed by BootstrapVue -->
+  <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
 
+  <!-- Load the following for BootstrapVueIcons support -->
+  <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       // Only call navigator.serviceWorker.register() if that's true.

@@ -3,8 +3,8 @@
   "short_name": "PWAtest",
   "lang": "uk",
   "start_url": "/",
-  "orientation": "any",
-  "display": "standalone",
+  "orientation": "portrait-primary",
+  "display": "fullscreen",
   "theme_color": "#1d497d",
   "icons": [
     {

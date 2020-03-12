@@ -1,0 +1,55 @@
+:root {
+  --main: #1d497d;
+  --light: #f0f4fc;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./font/Ubuntu-Bold.eot');
+  src: url('./font/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
+  url('./font/Ubuntu-Bold.woff') format('woff'),
+  url('./font/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./font/Ubuntu-Regular.eot');
+  src: url('./font/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
+  url('./font/Ubuntu-Regular.woff') format('woff'),
+  url('./font/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: normal;
+  background: #dbe1ed;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.main {
+  height: 100vh;
+  grid-template-rows: 50px 1fr 55px;
+}
+.top-row {
+  background: var(--main);
+}
+.bottom-row {
+  background: var(--light);
+  box-shadow: 0 0px 25px rgba(15, 16, 47, 0.2);
+}
