@@ -1,0 +1,22 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "test pwa app",
+  "main": "site.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergey-Nag/pwa.git"
+  },
+  "author": "Sergey-Nag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergey-Nag/pwa/issues"
+  },
+  "homepage": "https://github.com/Sergey-Nag/pwa#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
