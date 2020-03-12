@@ -51,12 +51,33 @@
   <main id="app" class="d-grid main">
     <div class="top-row">
       <!-- As a heading -->
+      
       <b-navbar variant="faded" type="dark">
-        <b-navbar-brand tag="h1" class="mb-0"><b>PWA</b> • test app</b-navbar-brand>
+        <b-navbar-brand tag="h1" class="mb-0">
+            <div class="icon-nav"><i class="fa fa-chevron-left"></i></div>
+          <b>PWA</b> • test app</b-navbar-brand>
       </b-navbar>
     </div>
     <div class="main-row"></div>
-    <div class="bottom-row"></div>
+    <div class="bottom-row">
+      <div class="d-grid buttons-bottom">
+        <div class="icon-item" tabindex="1">
+          <i class="fa fa-calendar"></i>
+        </div>
+        <div class="icon-item" tabindex="1">
+          <i class="fa fa-credit-card-alt"></i>
+        </div>
+        <div class="icon-item big" tabindex="1">
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="icon-item" tabindex="1">
+          <i class="fa fa-tags"></i>
+        </div>
+        <div class="icon-item" tabindex="1">
+          <i class="fa fa-bar-chart"></i>
+        </div>
+      </div>
+    </div>
   </main>
   <!-- Load Vue followed by BootstrapVue -->
   <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
@@ -96,6 +117,7 @@
     });
 
   </script>
+  <script src="https://use.fontawesome.com/aa4bd2ae6c.js"></script>
 </body>
 
 </html>

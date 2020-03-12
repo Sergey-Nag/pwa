@@ -1,5 +1,5 @@
 :root {
-  --main: #1d497d;
+  --main: #0f4c81;
   --light: #f0f4fc;
 }
 
@@ -38,6 +38,10 @@ body {
   background: #dbe1ed;
 }
 
+div:focus {
+  outline: none;
+}
+
 .d-grid {
   display: grid;
 }
@@ -52,4 +56,39 @@ body {
 .bottom-row {
   background: var(--light);
   box-shadow: 0 0px 25px rgba(15, 16, 47, 0.2);
+}
+.icon-nav {
+  float: left;
+  font-size: 1.4em;
+  line-height: 1.1em;
+  margin-right: 15px;
+}
+.buttons-bottom {
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0 14px;
+}
+
+.icon-item {
+  padding: 2px 0 1px;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 2.5em;
+}
+.icon-item.big {
+  font-size: 3.7em;
+  background: var(--primary);
+  padding: 14px;
+  color: white;
+  height: 75px;
+  justify-self: center;
+  width: 75px;
+  border-radius: 50%;
+  line-height: 0.5em;
+  transform: translateY(-20px);
+  box-shadow: 0 0 25px rgba(15, 16, 47, 0.05);
+  margin-bottom: -100%;
+}
+.icon-item:focus {
+  background: var(--primary);
+  color: white;
 }

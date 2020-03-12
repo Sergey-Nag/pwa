@@ -4,7 +4,7 @@
   "lang": "uk",
   "start_url": "/",
   "orientation": "portrait-primary",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#1d497d",
   "icons": [
     {
