@@ -1,7 +1,7 @@
 // Перечисление зависимостей:
 var path = require('path');
 var express = require('express');
-const host = '10.0.10.128';
+
 // Описание настроек:
 var staticSiteOptions = {
    portnum: 80, // слушать порт 80
@@ -13,4 +13,5 @@ express().use(express.static(
    path.join(__dirname, 'static'),
    staticSiteOptions
 )).listen(staticSiteOptions.portnum);
-console.log('Start\n');
+
+console.log('Start on port: '+staticSiteOptions.portnum+'\n');

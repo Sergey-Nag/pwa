@@ -49,41 +49,63 @@
 <body>
 
   <main id="app" class="d-grid main">
+
     <div class="top-row">
-      <!-- As a heading -->
-      
       <b-navbar variant="faded" type="dark">
         <b-navbar-brand tag="h1" class="mb-0">
-            <div class="icon-nav"><i class="fa fa-chevron-left"></i></div>
-          <b>PWA</b> • test app</b-navbar-brand>
+          <div class="icon-nav"><i class="fa fa-home"></i></div>
+          <!--            <div class="icon-nav"><i class="fa fa-chevron-left"></i></div>-->
+          <b>PWA</b> • test app
+        </b-navbar-brand>
       </b-navbar>
     </div>
-    <div class="main-row"></div>
+
+
+    <div class="main-row">
+
+      <transition name="slide">
+        <div class="screen" v-if="currScreen == 1" id="scr-1">
+          <div class="wrapp">
+            <h1>Home</h1>
+          </div>
+        </div>
+      </transition>
+
+        <div class="screen" v-else-if="currScreen == 2" id="scr-2">
+          <h1>Calendar</h1>
+        </div>
+      
+        <div class="screen" v-else-if="currScreen == 3" id="scr-3">
+          <h1>Stat</h1>
+        </div>
+      
+      <transition name="slide">
+        <div class="screen" v-else-if="currScreen == 4" id="scr-4">
+          <h1>Settings</h1>
+        </div>
+      </transition>
+
+
+    </div>
+
+
     <div class="bottom-row">
       <div class="d-grid buttons-bottom">
-        <div class="icon-item" tabindex="1">
-          <i class="fa fa-calendar"></i>
+
+        <div v-for="btn in bottomNav" :key="'btn-'+btn.toScreen" :class="'icon-item'+(btn.toScreen == currScreen ? ' active':'')+(btn.isBig?' big':'')" tabindex="1" @click="pageChange(btn.toScreen)">
+          <i :class="btn.iconName"></i>
         </div>
-        <div class="icon-item" tabindex="1">
-          <i class="fa fa-credit-card-alt"></i>
-        </div>
-        <div class="icon-item big" tabindex="1">
-          <i class="fa fa-plus"></i>
-        </div>
-        <div class="icon-item" tabindex="1">
-          <i class="fa fa-tags"></i>
-        </div>
-        <div class="icon-item" tabindex="1">
-          <i class="fa fa-bar-chart"></i>
-        </div>
+
       </div>
     </div>
+
   </main>
   <!-- Load Vue followed by BootstrapVue -->
   <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
 
   <!-- Load the following for BootstrapVueIcons support -->
   <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+  <script src="scripts/components.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       // Only call navigator.serviceWorker.register() if that's true.
@@ -102,13 +124,45 @@
       el: '#app',
       data: {
         btn: true,
-        btnText: "HELLO"
+        btnText: "HELLO",
+        currScreen: 1,
+        bottomNav: [{
+            iconName: 'fa fa-home',
+            isBig: false,
+            toScreen: 1
+          },
+          {
+            iconName: 'fa fa-calendar',
+            isBig: false,
+            toScreen: 2
+          },
+          {
+            iconName: 'fa fa-plus',
+            isBig: true,
+            toScreen: 0
+          },
+          {
+            iconName: 'fa fa-bar-chart',
+            isBig: false,
+            toScreen: 3
+          },
+          {
+            iconName: 'fa fa-cog',
+            isBig: false,
+            toScreen: 4
+          },
+        ]
       },
       methods: {
         btnDown() {
           this.btn = !this.btn;
           if (this.btn) this.btnText = "HELLO";
           else this.btnText = "WORLD";
+        },
+        pageChange(page) {
+          setTimeout(() => {
+            this.currScreen = page;
+          }, 100);
         }
       },
       mounted: function() {},

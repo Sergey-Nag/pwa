@@ -1,14 +1,15 @@
 :root {
   --main: #0f4c81;
   --light: #f0f4fc;
+  --trans: all 0.5s ease-in-out;
 }
 
 @font-face {
   font-family: 'Ubuntu';
   src: url('./font/Ubuntu-Bold.eot');
   src: url('./font/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
-  url('./font/Ubuntu-Bold.woff') format('woff'),
-  url('./font/Ubuntu-Bold.ttf') format('truetype');
+    url('./font/Ubuntu-Bold.woff') format('woff'),
+    url('./font/Ubuntu-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
@@ -17,11 +18,12 @@
   font-family: 'Ubuntu';
   src: url('./font/Ubuntu-Regular.eot');
   src: url('./font/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
-  url('./font/Ubuntu-Regular.woff') format('woff'),
-  url('./font/Ubuntu-Regular.ttf') format('truetype');
+    url('./font/Ubuntu-Regular.woff') format('woff'),
+    url('./font/Ubuntu-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -50,19 +52,23 @@ div:focus {
   height: 100vh;
   grid-template-rows: 50px 1fr 55px;
 }
+
 .top-row {
   background: var(--main);
 }
+
 .bottom-row {
   background: var(--light);
   box-shadow: 0 0px 25px rgba(15, 16, 47, 0.2);
 }
+
 .icon-nav {
   float: left;
   font-size: 1.4em;
   line-height: 1.1em;
   margin-right: 15px;
 }
+
 .buttons-bottom {
   grid-template-columns: repeat(5, 1fr);
   padding: 0 14px;
@@ -73,7 +79,10 @@ div:focus {
   text-align: center;
   font-size: 1.5em;
   line-height: 2.5em;
+  color: var(--main);
+  opacity: 1;
 }
+
 .icon-item.big {
   font-size: 3.7em;
   background: var(--primary);
@@ -88,7 +97,58 @@ div:focus {
   box-shadow: 0 0 25px rgba(15, 16, 47, 0.05);
   margin-bottom: -100%;
 }
-.icon-item:focus {
-  background: var(--primary);
+
+.icon-item:active {
+  background-image: radial-gradient(circle, rgba(15, 76, 129, 1) 60%, rgba(255, 255, 255, 0) 63%);
+  background-repeat: no-repeat;
+  background-size: 0% 0%;
+  background-position: center center;
+  animation: icon-item-bg .45s cubic-bezier(.42, 0, .25, 1.12);
+  animation-fill-mode: forwards;
+}
+
+@keyframes icon-item-bg {
+  from {
+    background-size: 2% 2%;
+    opacity: 1;
+  }
+
+  50% {
+    background-size: 170% 170%;
+    color: white;
+  }
+
+  to {
+    background-size: 170% 170%;
+    color: white;
+    opacity: .85;
+  }
+}
+
+.icon-item.active {
+  background-size: 170% 170%;
   color: white;
+  opacity: .85;
+  background: rgba(15, 76, 129, 1);
+}
+
+.main-row {
+  overflow: hidden;
+  height: 100%;
+}
+
+.screen {
+  width: 100%;
+  padding: 14px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: var(--trans);
+}
+
+.slide-enter,
+.slide-leave-to {
+/*  transform: opacity ;*/
+  opacity: 0;
 }
