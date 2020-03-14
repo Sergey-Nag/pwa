@@ -142,13 +142,33 @@ div:focus {
   padding: 14px;
 }
 
-.slide-enter-active,
-.slide-leave-active {
-  transition: var(--trans);
+.slide-enter-active{
+   transition: all .5s ease-in-out;
 }
-
-.slide-enter,
+.slide-leave-active {
+  transition: all .5s ease-in-out;
+  transition-delay: .5s;
+}
+/* .slide-enter,
 .slide-leave-to {
-/*  transform: opacity ;*/
+  opacity: 0;
+} */
+
+.slide-enter {
+  transform: translateY(25vh);
   opacity: 0;
 }
+
+
+.slide-leave-to  {
+  transform: translateY(-25vh)
+  opacity: 0;
+} 
+
+
+.slide-leave,
+.slide-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+

@@ -71,20 +71,29 @@
         </div>
       </transition>
 
-        <div class="screen" v-else-if="currScreen == 2" id="scr-2">
-          <h1>Calendar</h1>
-        </div>
-      
-        <div class="screen" v-else-if="currScreen == 3" id="scr-3">
-          <h1>Stat</h1>
-        </div>
-      
       <transition name="slide">
-        <div class="screen" v-else-if="currScreen == 4" id="scr-4">
-          <h1>Settings</h1>
+        <div class="screen" v-if="currScreen == 2" id="scr-2">
+          <div class="wrapp">
+            <h1>Calendar</h1>
+          </div>
         </div>
       </transition>
-
+      
+      <transition name="slide">
+        <div class="screen" v-if="currScreen == 3" id="scr-3">
+          <div class="wrapp">
+            <h1>Stat</h1>
+          </div>
+        </div>
+      </transition>
+      
+      <transition name="slide">
+        <div class="screen" v-if="currScreen == 4" id="scr-4">
+          <div class="wrapp">
+            <h1>Settings</h1>
+          </div>
+        </div>
+      </transition>
 
     </div>
 
