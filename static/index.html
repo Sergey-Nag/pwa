@@ -55,7 +55,7 @@
         <b-navbar-brand tag="h1" class="mb-0">
           <div class="icon-nav"><i class="fa fa-home"></i></div>
           <!--            <div class="icon-nav"><i class="fa fa-chevron-left"></i></div>-->
-          <b>PWA</b> • test app
+          <b>PWA</b> • {{title}}
         </b-navbar-brand>
       </b-navbar>
     </div>
@@ -63,34 +63,53 @@
 
     <div class="main-row">
 
-      <transition name="slide">
-        <div class="screen" v-if="currScreen == 1" id="scr-1">
+      <transition name="slide"
+      v-on:leave="marginHeight">
+        <div class="screen" v-if="currScreen == 1" id="scr-1" key="1">
           <div class="wrapp">
-            <h1>Home</h1>
+            <h1>{{title = 'Home'}}</h1>
+            <b-card></b-card>
           </div>
         </div>
-      </transition>
 
-      <transition name="slide">
-        <div class="screen" v-if="currScreen == 2" id="scr-2">
+        <div class="screen" v-if="currScreen == 2" id="scr-2" key="2">
           <div class="wrapp">
-            <h1>Calendar</h1>
+            <h1>{{title = 'Calendar'}}</h1>
           </div>
         </div>
-      </transition>
       
-      <transition name="slide">
-        <div class="screen" v-if="currScreen == 3" id="scr-3">
+        <div class="screen" v-if="currScreen == 3" id="scr-3" key="3">
           <div class="wrapp">
-            <h1>Stat</h1>
+            <h1>{{ title = 'Stat'}}</h1>
           </div>
         </div>
-      </transition>
       
-      <transition name="slide">
-        <div class="screen" v-if="currScreen == 4" id="scr-4">
+        <div class="screen" v-if="currScreen == 4" id="scr-4" key="4">
           <div class="wrapp">
-            <h1>Settings</h1>
+            <h1>{{title = 'Settings'}}</h1>
+          </div>
+        </div>
+      
+        <div class="screen" v-if="currScreen == 0" id="scr-0" key="0">
+          <div class="wrapp">
+            <h1>{{title = 'Новая операция'}}</h1>
+            <b-card>
+              <b-form-group 
+              label="Введите сумму"
+              label-for="input-cash">
+                <b-form-input id="input-cash" placeholder="Сумма:" type="number" size="lg"></b-form-input>
+              </b-form-group>
+
+              <b-form-group 
+              label="Выберите категории"
+              label-for="input-category">
+                <b-form-input list="input-category"></b-form-input>
+
+                <datalist id="input-category">
+                  <option v-for="categoty in valueTags">{{ categoty }}</option>
+                </datalist>
+              </b-form-group>
+            </b-card>
           </div>
         </div>
       </transition>
@@ -133,8 +152,14 @@
       el: '#app',
       data: {
         btn: true,
+        titleText: '',
         btnText: "HELLO",
         currScreen: 1,
+        valueTags: ['Развлечения','Проезд'],
+        slideAnim: {
+          from: 0,
+          to: 0
+        },
         bottomNav: [{
             iconName: 'fa fa-home',
             isBig: false,
@@ -172,10 +197,22 @@
           setTimeout(() => {
             this.currScreen = page;
           }, 100);
+        },
+        marginHeight(el) {
+          el.style.marginBottom = -el.getBoundingClientRect().height+'px';
         }
-      },
+       },
       mounted: function() {},
-
+      computed: {
+        title: {
+          get: function() {
+            return this.titleText || '';
+          },
+          set: function(txt) {
+            this.titleText = document.title = txt
+          }
+        }
+      }
 
     });
 
