@@ -14,6 +14,8 @@ if (abc == 223) {
    console.log(223);
 } else if (abc == 123) {
    console.log(123);
+} else if (abc == 1) {
+   console.log(123321);
 }
 
 // Запуск сайта:
