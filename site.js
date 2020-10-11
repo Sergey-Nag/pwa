@@ -16,6 +16,8 @@ if (abc == 223) {
    console.log(123);
 } else if (abc == 1) {
    console.log(123321);
+} else {
+   console.log(new Error('123 !== abc'));
 }
 
 // Запуск сайта:
